@@ -1,7 +1,7 @@
 document.getElementById('searchBtn').addEventListener('click', function () {
   const username = document.getElementById('username').value;
   const profileDiv = document.getElementById('profile');
-
+  
   // Clear previous results
   profileDiv.innerHTML = '';
 
@@ -14,6 +14,7 @@ document.getElementById('searchBtn').addEventListener('click', function () {
           if (!response.ok) {
               throw new Error('User not found');
           }
+          // if not return 
           return response.json();
       })
       .then(data => {
@@ -35,3 +36,4 @@ document.getElementById('searchBtn').addEventListener('click', function () {
           profileDiv.innerHTML = `<p class="error">${error.message}</p>`;
       });
 });
+ 
